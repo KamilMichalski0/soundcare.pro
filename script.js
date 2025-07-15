@@ -97,30 +97,72 @@ function initNavigation() {
    =========================================== */
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-item');
+    console.log('FAQ items found:', faqItems.length);
     
-    faqItems.forEach(item => {
+    faqItems.forEach((item, index) => {
         const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
         
-        question.addEventListener('click', function() {
-            const isActive = item.classList.contains('active');
+        console.log(`FAQ item ${index}:`, { question: !!question, answer: !!answer });
+        
+        if (!question || !answer) return;
+        
+        // Set initial state
+        answer.style.maxHeight = '0';
+        answer.style.overflow = 'hidden';
+        answer.style.transition = 'max-height 0.3s ease-out';
+        
+        const toggleFAQ = function() {
+            console.log('toggleFAQ called');
+            const isActive = item.classList.contains('active') || item.classList.contains('expanded');
+            console.log('isActive:', isActive);
             
             // Close all FAQ items
             faqItems.forEach(faqItem => {
-                faqItem.classList.remove('active');
+                faqItem.classList.remove('active', 'expanded');
+                const faqAnswer = faqItem.querySelector('.faq-answer');
+                if (faqAnswer) {
+                    faqAnswer.style.maxHeight = '0';
+                }
             });
             
             // Open clicked item if it wasn't active
             if (!isActive) {
-                item.classList.add('active');
+                item.classList.add('active', 'expanded');
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                console.log('Opening FAQ item, maxHeight set to:', answer.scrollHeight + 'px');
+            }
+        };
+        
+        // Add click event listener to question
+        question.addEventListener('click', toggleFAQ);
+        
+        // Add click event listener to toggle button specifically
+        const toggleButton = item.querySelector('.faq-toggle');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleFAQ();
+            });
+        }
+        
+        // Add touch event listener for mobile
+        question.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            toggleFAQ();
+        });
+        
+        // Add keyboard accessibility
+        question.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleFAQ();
             }
         });
     });
 }
 
-// Initialize FAQ on page load
-document.addEventListener('DOMContentLoaded', function() {
-    initFAQ();
-});
+// FAQ initialization is already handled in the main DOMContentLoaded event above
 
 /* ===========================================
    SMOOTH SCROLL FUNCTIONALITY
