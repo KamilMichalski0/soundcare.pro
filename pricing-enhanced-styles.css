@@ -138,6 +138,8 @@
     color: white;
     box-shadow: 0 8px 24px rgba(103, 126, 234, 0.3);
     flex-shrink: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .tier-card.basic .tier-icon {
@@ -145,9 +147,19 @@
     box-shadow: 0 8px 24px rgba(72, 187, 120, 0.3);
 }
 
+.tier-card.basic:hover .tier-icon {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(72, 187, 120, 0.4);
+}
+
 .tier-card.standard .tier-icon {
     background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
     box-shadow: 0 8px 24px rgba(66, 153, 225, 0.3);
+}
+
+.tier-card.standard:hover .tier-icon {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(66, 153, 225, 0.4);
 }
 
 .tier-card.premium .tier-icon {
@@ -155,9 +167,19 @@
     box-shadow: 0 8px 24px rgba(103, 126, 234, 0.3);
 }
 
+.tier-card.premium:hover .tier-icon {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(103, 126, 234, 0.4);
+}
+
 .tier-card.enterprise .tier-icon {
     background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
     box-shadow: 0 8px 24px rgba(237, 137, 54, 0.3);
+}
+
+.tier-card.enterprise:hover .tier-icon {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(237, 137, 54, 0.4);
 }
 
 .tier-price {
