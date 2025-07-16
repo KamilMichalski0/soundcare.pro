@@ -385,8 +385,8 @@
 }
 
 .tier-card.premium .tier-ideal i {
-    color: #a855f7;
-    background: rgba(168, 85, 247, 0.1);
+    color: #6d28d9;
+    background: rgba(168, 85, 247, 0.08);
 }
 
 .tier-card.enterprise .tier-ideal {
@@ -497,7 +497,8 @@
     overflow: visible;
 }
 
-.tier-card.premium .tier-ideal i::before {
+
+.tier-card.premium .tier-ideal i::after {
     content: "⭐";
     position: absolute;
     top: -12px;
@@ -518,7 +519,7 @@
 
 /* Mobile responsive for golden star */
 @media (max-width: 768px) {
-    .tier-card.premium .tier-ideal i::before {
+    .tier-card.premium .tier-ideal i::after {
         font-size: 14px;
         width: 20px;
         height: 20px;
@@ -529,7 +530,7 @@
 }
 
 @media (max-width: 480px) {
-    .tier-card.premium .tier-ideal i::before {
+    .tier-card.premium .tier-ideal i::after {
         font-size: 12px;
         width: 18px;
         height: 18px;
