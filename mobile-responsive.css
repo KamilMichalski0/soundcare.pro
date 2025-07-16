@@ -308,37 +308,60 @@
     .mobile-package {
         background: white;
         border: 1px solid #e5e7eb;
-        border-radius: 8px;
+        border-radius: 12px;
         padding: 1.5rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     
     .mobile-package h4 {
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
         color: var(--primary-color);
+        font-weight: 600;
     }
     
     .mobile-package .price {
-        font-size: 1.5rem;
-        font-weight: 700;
+        font-size: 1.25rem;
+        font-weight: 600;
         color: var(--primary-color);
         margin-bottom: 1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #f3f4f6;
     }
     
     .mobile-package .features {
         list-style: none;
+        padding: 0;
+        margin: 0;
     }
     
     .mobile-package .features li {
-        padding: 0.25rem 0;
+        padding: 0.6rem 0;
         font-size: 0.9rem;
+        line-height: 1.4;
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 1px solid #f9fafb;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+    
+    .mobile-package .features li:last-child {
+        border-bottom: none;
     }
     
     .mobile-package .features li::before {
-        content: "✓ ";
-        color: var(--accent-color);
+        content: "✓";
+        color: #10b981;
         font-weight: bold;
+        font-size: 1rem;
+        position: absolute;
+        left: 0;
+        top: 0.6rem;
+        width: 16px;
+        text-align: center;
+        flex-shrink: 0;
     }
     
     /* FAQ section */
