@@ -161,20 +161,26 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: white;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .faq-toggle::before {
+            width: 16px;
+            height: 2px;
+            border-radius: 1px;
+        }
+
+        .faq-toggle::after {
+            width: 2px;
+            height: 16px;
+            border-radius: 1px;
         }
 
         .faq-item.expanded .faq-toggle::after {
             display: none;
         }
 
-        .faq-answer {
-            display: none;
-        }
-
-        .faq-item.expanded .faq-answer {
-            display: block;
-        }
     </style>
     
     <!-- Force mobile business types fix on page load -->
