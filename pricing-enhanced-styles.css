@@ -299,12 +299,13 @@
     align-items: flex-start;
     gap: 12px;
     margin-top: auto;
+    margin-bottom: 4px;
     padding: 18px 20px;
     background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    border: 1px solid #bae6fd;
+    border: 2px solid #e5e7eb;
     border-radius: 12px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     min-height: 80px;
     box-sizing: border-box;
 }
@@ -348,7 +349,6 @@
 /* Special styling for each tier */
 .tier-card.basic .tier-ideal {
     background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-    border-color: #bbf7d0;
 }
 
 .tier-card.basic .tier-ideal::before {
@@ -362,7 +362,6 @@
 
 .tier-card.standard .tier-ideal {
     background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
-    border-color: #fbbf24;
 }
 
 .tier-card.standard .tier-ideal::before {
@@ -376,7 +375,6 @@
 
 .tier-card.premium .tier-ideal {
     background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
-    border-color: #a855f7;
     box-shadow: 0 4px 12px rgba(168, 85, 247, 0.2);
 }
 
@@ -391,7 +389,6 @@
 
 .tier-card.enterprise .tier-ideal {
     background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
-    border-color: #ec4899;
 }
 
 .tier-card.enterprise .tier-ideal::before {
@@ -493,9 +490,6 @@
 }
 
 /* Golden star in top-right corner of "Idealne dla" container */
-.tier-card.premium .tier-ideal {
-    overflow: visible;
-}
 
 
 .tier-card.premium .tier-ideal i::after {

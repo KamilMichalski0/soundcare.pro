@@ -795,16 +795,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (roiToggle && expandableRoi) {
         roiToggle.addEventListener('click', function() {
             const isShown = expandableRoi.classList.contains('show');
+            const icon = roiToggle.querySelector('i');
+            const fullText = roiToggle.querySelector('.btn-text-full');
+            const shortText = roiToggle.querySelector('.btn-text-short');
             
             if (isShown) {
                 // Hide ROI details
                 expandableRoi.classList.remove('show');
-                roiToggle.innerHTML = '<i class="fas fa-plus"></i><span>Zobacz Szczegółowe Wyliczenia</span>';
+                icon.className = 'fas fa-plus';
+                fullText.textContent = 'Zobacz Szczegółowe Wyliczenia';
+                shortText.textContent = 'Szczegółowe Wyliczenia';
                 roiToggle.classList.remove('active');
             } else {
                 // Show ROI details
                 expandableRoi.classList.add('show');
-                roiToggle.innerHTML = '<i class="fas fa-minus"></i><span>Ukryj Szczegółowe Wyliczenia</span>';
+                icon.className = 'fas fa-minus';
+                fullText.textContent = 'Ukryj Szczegółowe Wyliczenia';
+                shortText.textContent = 'Ukryj Wyliczenia';
                 roiToggle.classList.add('active');
             }
         });
@@ -817,16 +824,23 @@ document.addEventListener('DOMContentLoaded', function() {
     if (featuresToggle && expandableFeatures) {
         featuresToggle.addEventListener('click', function() {
             const isShown = expandableFeatures.classList.contains('show');
+            const icon = featuresToggle.querySelector('i');
+            const fullText = featuresToggle.querySelector('.btn-text-full');
+            const shortText = featuresToggle.querySelector('.btn-text-short');
             
             if (isShown) {
                 // Hide feature details
                 expandableFeatures.classList.remove('show');
-                featuresToggle.innerHTML = '<i class="fas fa-plus"></i><span>Zobacz Wszystkie Funkcjonalności</span>';
+                icon.className = 'fas fa-plus';
+                fullText.textContent = 'Zobacz Wszystkie Funkcjonalności';
+                shortText.textContent = 'Wszystkie Funkcje';
                 featuresToggle.classList.remove('active');
             } else {
                 // Show feature details
                 expandableFeatures.classList.add('show');
-                featuresToggle.innerHTML = '<i class="fas fa-minus"></i><span>Ukryj Funkcjonalności</span>';
+                icon.className = 'fas fa-minus';
+                fullText.textContent = 'Ukryj Funkcjonalności';
+                shortText.textContent = 'Ukryj Funkcje';
                 featuresToggle.classList.add('active');
             }
         });
