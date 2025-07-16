@@ -337,14 +337,13 @@
     }
     
     .mobile-package .features li {
-        padding: 0.6rem 0;
+        padding: 0.6rem 1rem 0.6rem 1.5rem;
         font-size: 0.9rem;
         line-height: 1.4;
         display: flex;
         align-items: flex-start;
         border-bottom: 1px solid #f9fafb;
         position: relative;
-        padding-left: 1.5rem;
     }
     
     .mobile-package .features li:last-child {
@@ -357,7 +356,7 @@
         font-weight: bold;
         font-size: 1rem;
         position: absolute;
-        left: 0;
+        left: 4px;
         top: 0.6rem;
         width: 16px;
         text-align: center;

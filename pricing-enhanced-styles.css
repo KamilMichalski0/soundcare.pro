@@ -962,17 +962,16 @@
 }
 
 .mobile-package .features li {
-    padding: 8px 0;
+    padding: 8px 16px 8px 24px;
     color: #4b5563;
     font-size: 14px;
     position: relative;
-    padding-left: 24px;
 }
 
 .mobile-package .features li::before {
     content: "✓";
     position: absolute;
-    left: 0;
+    left: 4px;
     color: #10b981;
     font-weight: 600;
 }
@@ -1091,7 +1090,7 @@
     background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
     border: 1px solid #bae6fd;
     border-radius: 8px;
-    padding: 12px 24px 12px 32px;
+    padding: 12px 20px 12px 32px;
     margin: 8px 0;
     font-weight: 600;
     color: #0f172a;
@@ -1103,11 +1102,13 @@
     color: #0ea5e9;
     font-size: 16px;
     font-weight: normal;
+    left: 4px;
 }
 
 .mobile-package .features li:nth-last-child(1)::before {
     content: "📞";
     color: #0ea5e9;
+    left: 4px;
 }
 
 /* Package-specific colors for mobile ideal sections */
