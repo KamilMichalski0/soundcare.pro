@@ -462,8 +462,59 @@
 }
 
 /* Additional emphasis for featured tier */
+.tier-card.premium .tier-ideal {
+    position: relative;
+}
+
 .tier-card.premium .tier-ideal span {
     position: relative;
+}
+
+/* Golden star in top-right corner of "Idealne dla" container */
+.tier-card.premium .tier-ideal {
+    overflow: visible;
+}
+
+.tier-card.premium .tier-ideal i::before {
+    content: "⭐";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    font-size: 16px;
+    color: #fbbf24;
+    background: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(251, 191, 36, 0.3);
+    z-index: 10;
+    border: 2px solid #fbbf24;
+}
+
+/* Mobile responsive for golden star */
+@media (max-width: 768px) {
+    .tier-card.premium .tier-ideal i::before {
+        font-size: 14px;
+        width: 20px;
+        height: 20px;
+        top: -10px;
+        right: -10px;
+        border-width: 1px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tier-card.premium .tier-ideal i::before {
+        font-size: 12px;
+        width: 18px;
+        height: 18px;
+        top: -9px;
+        right: -9px;
+        border-width: 1px;
+    }
 }
 
 .tier-card.premium .tier-ideal span::after {
