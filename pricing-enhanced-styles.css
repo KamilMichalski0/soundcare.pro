@@ -31,6 +31,19 @@
     min-height: 700px;
 }
 
+/* Mobile responsive fixes for tier cards */
+@media (max-width: 480px) {
+    .tier-card {
+        padding: 1.5rem 1rem;
+        min-height: 550px;
+        margin-bottom: 1rem;
+    }
+    
+    .tier-card.premium {
+        padding-bottom: 2.5rem;
+    }
+}
+
 .tier-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
@@ -462,6 +475,13 @@
     color: #7c3aed;
     font-weight: 500;
     opacity: 0.8;
+}
+
+/* Hide premium label on mobile to prevent overflow */
+@media (max-width: 768px) {
+    .tier-card.premium .tier-ideal span::after {
+        display: none;
+    }
 }
 
 /* Tooltip functionality for tier-ideal sections */
