@@ -1082,27 +1082,21 @@ function initDemoModal() {
     
     // Form submission
     form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         // Validate form
         if (!validateForm()) {
+            e.preventDefault();
             return;
         }
         
         // Show loading state
         form.classList.add('form-loading');
         
-        // Create FormData object
-        const formData = new FormData(form);
+        // Let the form submit normally to Sendy iframe (no preventDefault)
+        // This avoids CORS issues and redirects
         
-        // Submit to Sendy
-        fetch(form.action, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.text())
-        .then(data => {
-            // Handle success
+        // Show success message after a short delay
+        setTimeout(() => {
+            form.classList.remove('form-loading');
             showMessage('Dziękujemy! Skontaktujemy się z Tobą w ciągu 24 godzin.', 'success');
             form.reset();
             
@@ -1110,16 +1104,7 @@ function initDemoModal() {
             setTimeout(() => {
                 closeDemoModal();
             }, 3000);
-        })
-        .catch(error => {
-            // Handle error
-            showMessage('Przepraszamy, wystąpił błąd. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio.', 'error');
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            // Remove loading state
-            form.classList.remove('form-loading');
-        });
+        }, 1000);
     });
 }
 

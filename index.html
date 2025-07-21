@@ -44,6 +44,16 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WR3WBHM8"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+	
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2MGMR87VXR"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-2MGMR87VXR');
+	</script>
     
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
@@ -2005,8 +2015,8 @@
             <div class="modal-body">
                 <p>Skorzystaj z bezpłatnego demo SoundCare i zobacz jak nasz inteligentny asystent może pomóc Twojej firmie.</p>
                 
-                <form id="demo-form" action="https://soundcare.sendy.co/subscribe" method="POST">
-                    <input type="hidden" name="list" value="YOUR_LIST_ID">
+                <form id="demo-form" action="https://sendy.znanytrener.ai/subscribe" method="POST" target="sendy-frame">
+                    <input type="hidden" name="list" value="xBymtSyE5V9Uvpu8xXv0Ww">
                     <input type="hidden" name="subform" value="yes">
                     
                     <div class="form-group">
@@ -2021,17 +2031,17 @@
                     
                     <div class="form-group">
                         <label for="phone">Telefon *</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="Phone" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="company">Nazwa firmy *</label>
-                        <input type="text" id="company" name="company" required>
+                        <input type="text" id="company" name="CompanyName" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="industry">Branża</label>
-                        <select id="industry" name="industry">
+                        <select id="industry" name="sector">
                             <option value="">Wybierz branżę</option>
                             <option value="medical">Kliniki i przychodnie</option>
                             <option value="hospitality">Hotele i restauracje</option>
@@ -2047,7 +2057,7 @@
                     
                     <div class="form-group">
                         <label for="employees">Liczba pracowników</label>
-                        <select id="employees" name="employees">
+                        <select id="employees" name="workers">
                             <option value="">Wybierz zakres</option>
                             <option value="1-5">1-5 pracowników</option>
                             <option value="6-20">6-20 pracowników</option>
@@ -2059,12 +2069,12 @@
                     
                     <div class="form-group">
                         <label for="message">Dodatkowe informacje</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Opisz swoje potrzeby lub zadaj pytanie..."></textarea>
+                        <textarea id="message" name="description" rows="4" placeholder="Opisz swoje potrzeby lub zadaj pytanie..."></textarea>
                     </div>
                     
                     <div class="form-group">
                         <label for="demo-time">Preferowany termin demo</label>
-                        <select id="demo-time" name="demo-time">
+                        <select id="demo-time" name="date">
                             <option value="">Wybierz preferowany termin</option>
                             <option value="morning">Rano (9:00 - 12:00)</option>
                             <option value="afternoon">Popołudnie (12:00 - 17:00)</option>
@@ -2103,6 +2113,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Hidden iframe for form submission -->
+    <iframe name="sendy-frame" style="display: none;"></iframe>
 
     <script src="cookie-banner.js"></script>
     <script src="script.js"></script>
