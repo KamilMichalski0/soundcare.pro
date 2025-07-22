@@ -36950,5 +36950,69 @@ body {
         padding: 1.5rem;
     }
 }
+
 /* Equal height fix */
 .business-types-content { align-items: stretch !important; }
+
+/* Fix for hero phone button - ensure proper styling across all browsers */
+.hero-phone-btn,
+a.hero-phone-btn {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%) !important;
+    color: white !important;
+    border: 2px solid #48bb78 !important;
+    text-decoration: none !important;
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3) !important;
+}
+
+.hero-phone-btn:hover,
+.hero-phone-btn:focus,
+.hero-phone-btn:active,
+.hero-phone-btn:visited,
+a.hero-phone-btn:hover,
+a.hero-phone-btn:focus,
+a.hero-phone-btn:active,
+a.hero-phone-btn:visited {
+    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%) !important;
+    color: white !important;
+    border-color: #38a169 !important;
+    text-decoration: none !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4) !important;
+}
+
+.hero-phone-btn i {
+    animation: phoneRing 2s ease-in-out infinite;
+}
+
+@keyframes phoneRing {
+    0%, 100% { transform: rotate(0deg); }
+    10% { transform: rotate(10deg); }
+    20% { transform: rotate(-10deg); }
+    30% { transform: rotate(10deg); }
+    40% { transform: rotate(-10deg); }
+}
+
+/* Additional fix for anchor button styles */
+a.btn,
+a.btn-primary {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    text-decoration: none !important;
+}
+
+a.btn-primary:not(.hero-phone-btn) {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border: 2px solid var(--primary-color) !important;
+}
+
+a.btn-primary:not(.hero-phone-btn):hover,
+a.btn-primary:not(.hero-phone-btn):focus,
+a.btn-primary:not(.hero-phone-btn):active,
+a.btn-primary:not(.hero-phone-btn):visited {
+    background: var(--primary-dark) !important;
+    color: white !important;
+    text-decoration: none !important;
+    border-color: var(--primary-dark) !important;
+}

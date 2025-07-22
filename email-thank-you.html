@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dziękujemy za Twoje zapytanie - SoundCare</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #f8f9fa;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            text-align: center;
+            padding: 40px 30px;
+        }
+        
+        .header * {
+            color: white !important;
+        }
+        
+        .header .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .header .logo-img {
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .greeting {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 25px;
+        }
+        
+        .message {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: #1f2937;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-left: 4px solid #2563eb;
+            padding: 20px 25px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box h3 {
+            margin: 0 0 12px 0;
+            color: #1e3a8a;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            font-size: 15px;
+            color: #1f2937;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .contact-info {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .contact-info h4 {
+            margin: 0 0 15px 0;
+            color: #1e3a8a;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #374151;
+        }
+        
+        .contact-info a {
+            color: #1e3a8a;
+            text-decoration: none;
+        }
+        
+        .footer {
+            background: #f8fafc;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-img {
+            width: 32px;
+            height: 32px;
+            background: #2563eb;
+            border-radius: 6px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+            font-size: 13px;
+            color: #6b7280;
+        }
+        
+        .social-links {
+            margin: 20px 0 0 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #1e3a8a;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 600px) {
+            .email-container {
+                margin: 10px;
+                border-radius: 8px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            .highlight-box {
+                padding: 15px 20px;
+            }
+            
+            .cta-button {
+                padding: 14px 28px;
+                font-size: 15px;
+            }
+            
+            .contact-info,
+            .footer {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <div class="logo-img">🎧</div>
+                <span style="font-size: 22px; font-weight: 700;">SoundCare</span>
+            </div>
+            <h1>Dziękujemy za Twoje zapytanie!</h1>
+            <p>Twoje zgłoszenie zostało otrzymane</p>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="greeting">Dzień dobry!</div>
+            
+            <div class="message">
+                Dziękujemy za poświęcony czas i przesłanie formularza. Cieszymy się, że interesują Cię nasze rozwiązania z zakresu inteligentnych asystentów głosowych.
+            </div>
+
+            <div class="highlight-box">
+                <h3>✅ Potwierdzenie otrzymania</h3>
+                <p>Otrzymaliśmy Twoje zgłoszenie i wkrótce się z nim zapoznamy. Skontaktujemy się z Tobą tak szybko, jak to będzie możliwe, zazwyczaj w ciągu <strong>1-2 dni roboczych</strong>.</p>
+            </div>
+
+            <div class="message">
+                W międzyczasie zapraszamy do odwiedzenia naszej strony internetowej, gdzie znajdziesz więcej informacji o możliwościach, jakie oferuje SoundCare, oraz odpowiedzi na najczęściej zadawane pytania.
+            </div>
+
+            <div class="cta-section">
+                <a href="https://soundcare.pro" class="cta-button">
+                    Odwiedź naszą stronę
+                </a>
+            </div>
+
+            <div class="contact-info">
+                <h4>Masz dodatkowe pytania?</h4>
+                <p>📧 Email: <a href="mailto:biuro@soundcare.pro">biuro@soundcare.pro</a></p>
+                <p>📞 Telefon: <a href="tel:+48539000909">+48 539000909</a></p>
+                <p>🌐 Strona: <a href="https://soundcare.pro">www.soundcare.pro</a></p>
+            </div>
+
+            <div class="message" style="margin-top: 30px; font-style: italic; text-align: center; color: #6b7280;">
+                Pozdrawiamy serdecznie,<br>
+                <strong style="color: #1e3a8a;">Zespół SoundCare Pro</strong>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">
+                <div class="footer-logo-img">🎧</div>
+                <span style="font-weight: 600; color: #1e3a8a;">SoundCare</span>
+            </div>
+            <p>Inteligentny Asystent Głosowy 24/7</p>
+            <p>© 2025 SoundCare Pro. Wszystkie prawa zastrzeżone.</p>
+            
+            <div class="social-links">
+                <a href="https://soundcare.pro">Strona główna</a>
+                <a href="https://soundcare.pro/cennik.html">Cennik</a>
+                <a href="https://soundcare.pro/polityka-prywatnosci.html">Polityka prywatności</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
