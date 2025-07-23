@@ -64,7 +64,113 @@
 
 	  gtag('config', 'G-RLRKBBT2VC');
 	</script>
-    
+
+    <!-- Google tag (gtag.js) event -->
+<script>
+    gtag('event', 'scroll', {
+      // <event_parameters>
+    });
+  </script>
+
+  <!-- Google tag (gtag.js) event - delayed navigation helper -->
+<script>
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    function gtagSendEvent(url) {
+      var callback = function () {
+        if (typeof url === 'string') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'qualify_lead', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+        // <event_parameters>
+      });
+      return false;
+    }
+  </script>
+
+  <!-- Google tag (gtag.js) event -->
+<script>
+    gtag('event', 'user_engagement', {
+      // <event_parameters>
+    });
+  </script>
+  <!-- Google tag (gtag.js) event -->
+<script>
+    gtag('event', 'first_visit', {
+      // <event_parameters>
+    });
+  </script>
+    <!-- Google tag (gtag.js) event -->
+<script>
+    gtag('event', 'session_start', {
+      // <event_parameters>
+    });
+  </script>
+<!-- Google tag (gtag.js) event - delayed navigation helper -->
+<script>
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    function gtagSendEvent(url) {
+      var callback = function () {
+        if (typeof url === 'string') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'close_convert_lead', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+        // <event_parameters>
+      });
+      return false;
+    }
+  </script>
+
+  <!-- Google tag (gtag.js) event -->
+<script>
+    gtag('event', 'page_view', {
+      // <event_parameters>
+    });
+  </script>
+<!-- Google tag (gtag.js) event - delayed navigation helper -->
+<script>
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    function gtagSendEvent(url) {
+      var callback = function () {
+        if (typeof url === 'string') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'form_submit', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+        // <event_parameters>
+      });
+      return false;
+    }
+  </script>
+
+  <!-- Google tag (gtag.js) event - delayed navigation helper -->
+<script>
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    function gtagSendEvent(url) {
+      var callback = function () {
+        if (typeof url === 'string') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'form_start', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+        // <event_parameters>
+      });
+      return false;
+    }
+  </script>
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json">
     {
