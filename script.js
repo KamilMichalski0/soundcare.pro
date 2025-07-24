@@ -1094,16 +1094,13 @@ function initDemoModal() {
         // Let the form submit normally to Sendy iframe (no preventDefault)
         // This avoids CORS issues and redirects
         
-        // Show success message after a short delay
+        // Show success message and redirect after a short delay
         setTimeout(() => {
             form.classList.remove('form-loading');
-            showMessage('Dziękujemy! Skontaktujemy się z Tobą w ciągu 24 godzin.', 'success');
-            form.reset();
+            closeDemoModal();
             
-            // Close modal after 3 seconds
-            setTimeout(() => {
-                closeDemoModal();
-            }, 3000);
+            // Redirect to thank you page
+            window.location.href = 'email-thank-you.html';
         }, 1000);
     });
 }

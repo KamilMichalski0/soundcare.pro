@@ -234,6 +234,13 @@
             }
         }
     </style>
+    <!-- Auto-redirect script -->
+    <script>
+        // Redirect to main page after 5 seconds
+        setTimeout(function() {
+            window.location.href = 'index.html';
+        }, 5000);
+    </script>
 </head>
 <body>
     <div class="email-container">
@@ -263,10 +270,14 @@
             <div class="message">
                 W międzyczasie zapraszamy do odwiedzenia naszej strony internetowej, gdzie znajdziesz więcej informacji o możliwościach, jakie oferuje SoundCare, oraz odpowiedzi na najczęściej zadawane pytania.
             </div>
+            
+            <div class="message" style="text-align: center; background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b; color: #92400e; font-weight: 500;">
+                Automatycznie przekierujemy Cię na stronę główną za <span id="countdown">5</span> sekund...
+            </div>
 
             <div class="cta-section">
-                <a href="https://soundcare.pro" class="cta-button">
-                    Odwiedź naszą stronę
+                <a href="index.html" class="cta-button">
+                    Powrót do strony głównej
                 </a>
             </div>
 
@@ -293,11 +304,28 @@
             <p>© 2025 SoundCare Pro. Wszystkie prawa zastrzeżone.</p>
             
             <div class="social-links">
-                <a href="https://soundcare.pro">Strona główna</a>
-                <a href="https://soundcare.pro/cennik.html">Cennik</a>
-                <a href="https://soundcare.pro/polityka-prywatnosci.html">Polityka prywatności</a>
+                <a href="index.html">Strona główna</a>
+                <a href="cennik.html">Cennik</a>
+                <a href="polityka-prywatnosci.html">Polityka prywatności</a>
             </div>
         </div>
     </div>
+    
+    <!-- Countdown script -->
+    <script>
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+        
+        const timer = setInterval(function() {
+            countdown--;
+            if (countdownElement) {
+                countdownElement.textContent = countdown;
+            }
+            
+            if (countdown <= 0) {
+                clearInterval(timer);
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
