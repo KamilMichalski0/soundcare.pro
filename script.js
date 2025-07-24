@@ -567,7 +567,7 @@ function showNotification(message, type = 'info') {
                 border-radius: 8px;
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
                 padding: 1rem 1.5rem;
-                z-index: 9999;
+                z-index: 100003;
                 max-width: 400px;
                 transform: translateX(420px);
                 transition: transform 0.3s ease;
