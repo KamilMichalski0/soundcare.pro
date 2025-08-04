@@ -378,6 +378,13 @@
             }
         });
     </script>
+
+    <!-- Vapi Widget Script -->
+    <script
+      src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
+      async
+      type="text/javascript">
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Przejdź do głównej treści</a>
@@ -2224,6 +2231,25 @@
 
     <!-- Hidden iframe for form submission -->
     <iframe name="sendy-frame" style="display: none;"></iframe>
+
+    <!-- Vapi Widget -->
+    <vapi-widget assistant-id="8a0b8543-442e-4b24-9c51-c1900c5bd217" 
+    public-key="b7940e62-2549-40c8-98bd-496e22f5ba76"
+    mode="chat"
+    size="compact"
+    theme="dark"
+
+    radius="large"
+    base-color="#1a1a1a"
+    accent-color="#3B82F6"
+    button-base-color="#000000"
+    button-accent-color="#FFFFFF"
+    main-label="Napisz do BOTA"
+    start-button-text="Napisz do nas!"
+    end-button-text="Zamknij"
+    empty-chat-message="Napisz do nas!"
+    empty-voice-message="Napisz do nas!"
+    ></vapi-widget>
 
     <script src="cookie-banner.js"></script>
     <script src="script.js"></script>
