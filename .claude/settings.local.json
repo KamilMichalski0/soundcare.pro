@@ -5,7 +5,8 @@
       "Bash(mkdir:*)",
       "Bash(tree:*)",
       "Bash(curl:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

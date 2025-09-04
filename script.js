@@ -1136,6 +1136,9 @@ function closeDemoModal() {
 // Make functions globally available
 window.openDemoModal = openDemoModal;
 window.closeModal = closeDemoModal;
+window.openROIModal = openROIModal;
+window.closeROIModal = closeROIModal;
+window.closeExitPopup = closeExitPopup;
 
 function validateForm() {
     const required = ['name', 'email', 'phone', 'company'];
@@ -1329,3 +1332,190 @@ function initBreadcrumbIndicator() {
     // Initial update
     setTimeout(updateBreadcrumb, 100);
 } 
+
+/* ===========================================
+   ROI CALCULATOR FUNCTIONALITY
+   =========================================== */
+function openROIModal() {
+    const modal = document.getElementById('roi-calculator-modal');
+    modal.style.display = 'flex';
+    document.body.classList.add('modal-open');
+    
+    // Focus on first input
+    setTimeout(() => {
+        document.getElementById('employees-count').focus();
+    }, 100);
+}
+
+function closeROIModal() {
+    const modal = document.getElementById('roi-calculator-modal');
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    
+    // Reset calculator
+    const results = document.getElementById('calculator-results');
+    results.style.display = 'none';
+    document.querySelector('.calculator-form').style.display = 'block';
+}
+
+// ROI Calculator Logic
+document.addEventListener('DOMContentLoaded', function() {
+    const calculateBtn = document.getElementById('calculate-roi');
+    const roiModal = document.getElementById('roi-calculator-modal');
+    
+    if (calculateBtn) {
+        calculateBtn.addEventListener('click', function() {
+            calculateROI();
+        });
+    }
+    
+    // Close modal handlers for ROI calculator
+    if (roiModal) {
+        const closeBtn = roiModal.querySelector('.modal-close');
+        closeBtn.addEventListener('click', closeROIModal);
+        
+        roiModal.addEventListener('click', function(e) {
+            if (e.target === roiModal) {
+                closeROIModal();
+            }
+        });
+    }
+    
+    // Detailed report handler
+    const reportBtn = document.getElementById('get-detailed-report');
+    if (reportBtn) {
+        reportBtn.addEventListener('click', function() {
+            // Track event
+            gtag('event', 'generate_lead', {
+                'event_category': 'ROI Calculator',
+                'event_label': 'Download Report'
+            });
+            
+            // Show contact form for report
+            closeROIModal();
+            openDemoModal();
+        });
+    }
+});
+
+function calculateROI() {
+    // Get input values
+    const employees = parseInt(document.getElementById('employees-count').value) || 2;
+    const callsPerDay = parseInt(document.getElementById('calls-per-day').value) || 50;
+    const avgSalary = parseInt(document.getElementById('avg-salary').value) || 5500;
+    const workingDays = parseInt(document.getElementById('working-days').value) || 22;
+    
+    // Calculate current costs
+    const monthlyCallsTotal = callsPerDay * workingDays;
+    const currentSalaries = employees * avgSalary;
+    const zusAndOther = currentSalaries * 0.3; // 30% ZUS and other costs
+    const totalCurrent = currentSalaries + zusAndOther;
+    
+    // Calculate SoundCare costs
+    const soundcareBase = 3499; // Standard plan
+    const callCostPer4min = 1.40;
+    const avgCallDuration = 4; // minutes
+    const soundcareCallCosts = monthlyCallsTotal * callCostPer4min;
+    const totalSoundcare = soundcareBase + soundcareCallCosts;
+    
+    // Calculate savings
+    const monthlySavings = totalCurrent - totalSoundcare;
+    const yearlySavings = monthlySavings * 12;
+    
+    // Display results
+    document.getElementById('current-salaries').textContent = currentSalaries.toLocaleString() + ' PLN';
+    document.getElementById('additional-costs').textContent = zusAndOther.toLocaleString() + ' PLN';
+    document.getElementById('total-current').textContent = totalCurrent.toLocaleString() + ' PLN';
+    document.getElementById('call-costs').textContent = soundcareCallCosts.toLocaleString() + ' PLN';
+    document.getElementById('total-soundcare').textContent = totalSoundcare.toLocaleString() + ' PLN';
+    document.getElementById('monthly-savings').textContent = monthlySavings.toLocaleString() + ' PLN';
+    document.getElementById('yearly-savings').textContent = yearlySavings.toLocaleString() + ' PLN';
+    
+    // Show results
+    document.querySelector('.calculator-form').style.display = 'none';
+    document.getElementById('calculator-results').style.display = 'block';
+    
+    // Track event
+    gtag('event', 'calculate_roi', {
+        'event_category': 'ROI Calculator',
+        'value': monthlySavings
+    });
+}
+
+/* ===========================================
+   EXIT INTENT POPUP FUNCTIONALITY
+   =========================================== */
+let exitIntentShown = false;
+
+function closeExitPopup() {
+    const popup = document.getElementById('exit-intent-popup');
+    popup.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    exitIntentShown = true; // Don't show again
+}
+
+// Exit intent detection
+document.addEventListener('DOMContentLoaded', function() {
+    let mouseY = 0;
+    let isScrolling = false;
+    
+    document.addEventListener('mousemove', function(e) {
+        mouseY = e.clientY;
+    });
+    
+    document.addEventListener('scroll', function() {
+        isScrolling = true;
+        setTimeout(() => { isScrolling = false; }, 150);
+    });
+    
+    document.addEventListener('mouseleave', function(e) {
+        if (!exitIntentShown && mouseY < 50 && !isScrolling) {
+            const popup = document.getElementById('exit-intent-popup');
+            popup.style.display = 'flex';
+            document.body.classList.add('modal-open');
+            exitIntentShown = true;
+            
+            // Track event
+            gtag('event', 'exit_intent', {
+                'event_category': 'Engagement'
+            });
+        }
+    });
+    
+    // Close popup handlers
+    const exitPopup = document.getElementById('exit-intent-popup');
+    if (exitPopup) {
+        const closeBtn = exitPopup.querySelector('.modal-close');
+        closeBtn.addEventListener('click', closeExitPopup);
+        
+        exitPopup.addEventListener('click', function(e) {
+            if (e.target === exitPopup) {
+                closeExitPopup();
+            }
+        });
+    }
+});
+
+/* ===========================================
+   QUICK CONTACT FORM FUNCTIONALITY
+   =========================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const quickForm = document.getElementById('quick-contact-form');
+    
+    if (quickForm) {
+        quickForm.addEventListener('submit', function(e) {
+            // Let form submit to Sendy normally
+            // Show success message after delay
+            setTimeout(() => {
+                document.querySelector('.quick-contact-form form').style.display = 'none';
+                document.getElementById('quick-form-success').style.display = 'block';
+                
+                // Track conversion
+                gtag('event', 'form_submit', {
+                    'event_category': 'Lead Generation',
+                    'event_label': 'Quick Contact'
+                });
+            }, 1000);
+        });
+    }
+});

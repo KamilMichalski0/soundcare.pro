@@ -138,11 +138,15 @@
                         </div>
                         
                         <div class="hero-buttons">
-                            <button class="btn btn-primary btn-large" aria-label="Umów bezpłatne demo SoundCare" onclick="openDemoModal()">
-                                <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                                <span>Umów Bezpłatne Demo</span>
+                            <button class="btn btn-primary btn-large" aria-label="Kalkulator ROI - sprawdź ile zaoszczędzisz" onclick="openROIModal()">
+                                <i class="fas fa-calculator" aria-hidden="true"></i>
+                                <span>Kalkulator ROI - Sprawdź Oszczędności</span>
                             </button>
-                            <a href="tel:+48732125445" class="btn btn-primary btn-large hero-phone-btn" aria-label="Zadzwoń do BOTA SoundCare">
+                            <button class="btn btn-secondary btn-large" aria-label="Umów bezpłatne demo SoundCare" onclick="openDemoModal()">
+                                <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                                <span>Umów Demo</span>
+                            </button>
+                            <a href="tel:+48732125445" class="btn btn-outline btn-large hero-phone-btn" aria-label="Zadzwoń do BOTA SoundCare">
                                 <i class="fas fa-phone" aria-hidden="true"></i>
                                 <span>Zadzwoń do BOTA</span>
                             </a>
@@ -169,12 +173,16 @@
                                 <span class="stat-label">Dostępność</span>
                             </div>
                             <div class="stat">
+                                <span class="stat-number">15,000+</span>
+                                <span class="stat-label">Połączeń miesięcznie</span>
+                            </div>
+                            <div class="stat">
                                 <span class="stat-number">95%</span>
                                 <span class="stat-label">Skuteczność</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">3min</span>
-                                <span class="stat-label">Średni Czas</span>
+                                <span class="stat-number">200+</span>
+                                <span class="stat-label">Firm korzysta</span>
                             </div>
                         </div>
                     </div>
@@ -947,6 +955,68 @@
                                 <p>Pełna widoczność metryk, statystyk i trendów obsługi klientów</p>
                                 <div class="benefit-value">Real-time insights</div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Contact Section -->
+        <section class="quick-contact">
+            <div class="container">
+                <div class="quick-contact-content">
+                    <div class="quick-contact-text">
+                        <h2>Chcesz dowiedzieć się więcej?</h2>
+                        <p>Zostaw swój email, a prześlemy Ci szczegółowe informacje o SoundCare oraz bezpłatny przewodnik "7 sposobów na automatyzację obsługi klienta"</p>
+                        <div class="quick-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-gift"></i>
+                                <span>Bezpłatny przewodnik PDF</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-calculator"></i>
+                                <span>Personalizowana wycena</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Bez spamu - tylko wartościowe treści</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-contact-form">
+                        <h3>Pobierz bezpłatny przewodnik</h3>
+                        <form id="quick-contact-form" action="https://sendy.znanytrener.ai/subscribe" method="POST" target="sendy-frame-quick">
+                            <input type="hidden" name="list" value="xBymtSyE5V9Uvpu8xXv0Ww">
+                            <input type="hidden" name="subform" value="yes">
+                            <input type="hidden" name="source" value="quick-contact">
+                            
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" id="quick-name" name="name" placeholder="Imię" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="quick-email" name="email" placeholder="email@firma.pl" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-large">
+                                    <i class="fas fa-download"></i>
+                                    <span>Pobierz przewodnik</span>
+                                </button>
+                            </div>
+                            
+                            <div class="form-privacy">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="quick-gdpr" name="gdpr" required>
+                                    <span class="checkmark"></span>
+                                    Zgadzam się na przetwarzanie moich danych zgodnie z <a href="polityka-prywatnosci.html">polityką prywatności</a>
+                                </label>
+                            </div>
+                        </form>
+                        
+                        <div class="form-success" id="quick-form-success" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Dziękujemy!</h3>
+                            <p>Przewodnik został wysłany na Twój email. Sprawdź skrzynkę odbiorczą (i folder spam).</p>
                         </div>
                     </div>
                 </div>
@@ -1812,6 +1882,109 @@
         </div>
     </footer>
 
+    <!-- ROI Calculator Modal -->
+    <div id="roi-calculator-modal" class="modal" style="display: none;">
+        <div class="modal-content roi-calculator">
+            <div class="modal-header">
+                <h2><i class="fas fa-calculator"></i> Kalkulator ROI - Ile zaoszczędzisz?</h2>
+                <button class="modal-close" aria-label="Zamknij kalkulator">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="calculator-container">
+                    <div class="calculator-form">
+                        <h3>Podaj dane swojej firmy:</h3>
+                        
+                        <div class="form-group">
+                            <label for="employees-count">Liczba pracowników obsługi klienta</label>
+                            <input type="number" id="employees-count" min="1" max="50" value="2">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="calls-per-day">Przeciętna liczba połączeń dziennie</label>
+                            <input type="number" id="calls-per-day" min="10" max="1000" value="50">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="avg-salary">Średnia pensja pracownika (brutto PLN)</label>
+                            <input type="number" id="avg-salary" min="3000" max="15000" value="5500" step="100">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="working-days">Dni robocze w miesiącu</label>
+                            <input type="number" id="working-days" min="20" max="30" value="22">
+                        </div>
+                        
+                        <button type="button" id="calculate-roi" class="btn btn-primary btn-large">
+                            <i class="fas fa-calculator"></i>
+                            Oblicz Moje Oszczędności
+                        </button>
+                    </div>
+                    
+                    <div class="calculator-results" id="calculator-results" style="display: none;">
+                        <h3>Twoje miesięczne oszczędności:</h3>
+                        
+                        <div class="savings-summary">
+                            <div class="current-costs">
+                                <h4>Obecne koszty:</h4>
+                                <div class="cost-item">
+                                    <span>Pensje pracowników:</span>
+                                    <span id="current-salaries">0 PLN</span>
+                                </div>
+                                <div class="cost-item">
+                                    <span>Koszty dodatkowe (ZUS, etc.):</span>
+                                    <span id="additional-costs">0 PLN</span>
+                                </div>
+                                <div class="cost-total">
+                                    <span>RAZEM miesięcznie:</span>
+                                    <span id="total-current">0 PLN</span>
+                                </div>
+                            </div>
+                            
+                            <div class="soundcare-costs">
+                                <h4>Koszty SoundCare:</h4>
+                                <div class="cost-item">
+                                    <span>Plan STANDARD:</span>
+                                    <span>3,499 PLN netto</span>
+                                </div>
+                                <div class="cost-item">
+                                    <span>Koszt połączeń:</span>
+                                    <span id="call-costs">0 PLN</span>
+                                </div>
+                                <div class="cost-total">
+                                    <span>RAZEM miesięcznie:</span>
+                                    <span id="total-soundcare">0 PLN</span>
+                                </div>
+                            </div>
+                            
+                            <div class="savings-result">
+                                <h4>Twoje oszczędności:</h4>
+                                <div class="savings-amount">
+                                    <span id="monthly-savings">0 PLN</span>
+                                    <small>miesięcznie</small>
+                                </div>
+                                <div class="savings-yearly">
+                                    <span>Rocznie zaoszczędzisz: </span>
+                                    <strong id="yearly-savings">0 PLN</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-actions">
+                            <button type="button" id="get-detailed-report" class="btn btn-primary btn-large">
+                                <i class="fas fa-file-pdf"></i>
+                                Pobierz Szczegółowy Raport ROI
+                            </button>
+                            <button type="button" onclick="openDemoModal(); closeROIModal();" class="btn btn-secondary">
+                                <i class="fas fa-calendar-check"></i>
+                                Umów Demo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Demo Booking Modal -->
     <div id="demo-modal" class="modal" style="display: none;">
         <div class="modal-content">
@@ -1919,8 +2092,58 @@
         </div>
     </div>
 
-    <!-- Hidden iframe for form submission -->
+    <!-- Hidden iframes for form submissions -->
     <iframe name="sendy-frame" style="display: none;"></iframe>
+    <iframe name="sendy-frame-quick" style="display: none;"></iframe>
+
+    <!-- Exit Intent Popup -->
+    <div id="exit-intent-popup" class="modal exit-intent" style="display: none;">
+        <div class="modal-content exit-popup">
+            <div class="modal-header">
+                <h2><i class="fas fa-exclamation-triangle"></i> Czekaj! Nie odchodź z pustymi rękoma</h2>
+                <button class="modal-close" aria-label="Zamknij popup">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="exit-offer">
+                    <div class="offer-content">
+                        <h3>🎁 Odbierz <strong>bezpłatny kalkulator ROI</strong> zanim wyjdziesz!</h3>
+                        <p>W 2 minuty sprawdzisz ile miesięcznie zaoszczędzisz z SoundCare</p>
+                        
+                        <div class="offer-benefits">
+                            <div class="benefit">
+                                <i class="fas fa-calculator"></i>
+                                <span>Personalized ROI calculation</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Szczegółowy raport PDF</span>
+                            </div>
+                            <div class="benefit">
+                                <i class="fas fa-percent"></i>
+                                <span>20% zniżki na pierwszy miesiąc</span>
+                            </div>
+                        </div>
+                        
+                        <div class="offer-actions">
+                            <button class="btn btn-primary btn-large" onclick="openROIModal(); closeExitPopup();">
+                                <i class="fas fa-calculator"></i>
+                                Oblicz Moje Oszczędności
+                            </button>
+                            <button class="btn btn-outline" onclick="closeExitPopup();">
+                                <i class="fas fa-times"></i>
+                                Nie, dziękuję
+                            </button>
+                        </div>
+                        
+                        <div class="urgency">
+                            <i class="fas fa-clock"></i>
+                            <span>Ta oferta jest ważna tylko dziś!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Vapi Widget -->
     <vapi-widget assistant-id="8a0b8543-442e-4b24-9c51-c1900c5bd217" 
