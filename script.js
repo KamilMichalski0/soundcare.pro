@@ -1063,13 +1063,15 @@ function initBusinessTypes() {
    =========================================== */
 function initDemoModal() {
     const modal = document.getElementById('demo-modal');
-    const closeBtn = document.querySelector('.modal-close');
+    const closeBtn = document.querySelector('#demo-modal .modal-close');
     const form = document.getElementById('demo-form');
     
     // Close modal when clicking close button
-    closeBtn.addEventListener('click', function() {
-        closeDemoModal();
-    });
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            closeDemoModal();
+        });
+    }
     
     // Close modal when clicking outside
     modal.addEventListener('click', function(e) {
@@ -1087,8 +1089,8 @@ function initDemoModal() {
     
     // Form submission
     form.addEventListener('submit', function(e) {
-        // Validate form
-        if (!validateForm()) {
+        // Validate only required fields from current step
+        if (!validateDemoForm()) {
             e.preventDefault();
             return;
         }
@@ -1211,6 +1213,90 @@ function showMessage(text, type) {
             }
         }, 5000);
     }
+}
+
+/* ===========================================
+   MULTI-STEP DEMO FORM FUNCTIONALITY
+   =========================================== */
+function nextFormStep() {
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    
+    // Validate required fields
+    if (!name || !email) {
+        showMessage('Proszę wypełnić imię i adres e-mail.', 'error');
+        return;
+    }
+    
+    if (!isValidEmail(email)) {
+        showMessage('Proszę podać poprawny adres e-mail.', 'error');
+        return;
+    }
+    
+    // Hide step 1, show step 2
+    step1.style.display = 'none';
+    step2.style.display = 'block';
+    step2.classList.add('active');
+    
+    // Focus on first field of step 2
+    setTimeout(() => {
+        document.getElementById('phone').focus();
+    }, 300);
+}
+
+function prevFormStep() {
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    
+    // Hide step 2, show step 1
+    step2.style.display = 'none';
+    step1.style.display = 'block';
+    step1.classList.add('active');
+    
+    // Focus on email field
+    setTimeout(() => {
+        document.getElementById('email').focus();
+    }, 300);
+}
+
+function validateDemoForm() {
+    // Only validate required fields (email and GDPR)
+    const email = document.getElementById('email').value.trim();
+    const gdpr = document.getElementById('gdpr').checked;
+    
+    let isValid = true;
+    
+    // Clear previous error styles
+    document.querySelectorAll('.form-group input, .form-group select, .form-group textarea').forEach(field => {
+        field.style.borderColor = '';
+    });
+    
+    // Validate email
+    if (!email || !isValidEmail(email)) {
+        document.getElementById('email').style.borderColor = '#e74c3c';
+        isValid = false;
+    }
+    
+    // Validate GDPR consent
+    if (!gdpr) {
+        document.getElementById('gdpr').parentElement.style.color = '#e74c3c';
+        isValid = false;
+    } else {
+        document.getElementById('gdpr').parentElement.style.color = '';
+    }
+    
+    if (!isValid) {
+        showMessage('Proszę wypełnić wymagane pola: business e-mail i zgodę RODO.', 'error');
+    }
+    
+    return isValid;
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 }
 
 console.log('🎤 VoiceFlow AI - Landing Page Loaded Successfully!'); 
