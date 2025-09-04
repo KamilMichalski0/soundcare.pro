@@ -34690,21 +34690,21 @@ body {
    PRICING FORM STYLES
    =========================================== */
 .pricing-form {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem;
+    border-radius: 16px;
     margin: 2rem auto;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    max-width: 600px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 550px;
     width: 100%;
 }
 
 .form-grid {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
     margin-bottom: 1.5rem;
 }
 
@@ -34715,21 +34715,23 @@ body {
 
 
 .form-group label {
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 0.5rem;
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
     padding: 0.875rem 1rem;
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: white;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text-primary);
 }
 
 .form-group input:focus,
@@ -34737,7 +34739,8 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.08);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .form-group textarea {
@@ -34747,11 +34750,13 @@ body {
 
 .pricing-form .btn {
     width: 100%;
-    margin-top: 1rem;
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
-    font-weight: 600;
+    margin-top: 1.5rem;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: 500;
     box-sizing: border-box;
+    border-radius: 8px;
+    letter-spacing: 0.01em;
 }
 
 @media (max-width: 768px) {
