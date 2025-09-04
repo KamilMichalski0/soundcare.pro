@@ -1591,16 +1591,16 @@ document.addEventListener('DOMContentLoaded', function() {
     if (quickForm) {
         quickForm.addEventListener('submit', function(e) {
             // Let form submit to Sendy normally
-            // Show success message after delay
+            // Show success message and redirect after delay
             setTimeout(() => {
-                document.querySelector('.quick-contact-form form').style.display = 'none';
-                document.getElementById('quick-form-success').style.display = 'block';
-                
                 // Track conversion
                 gtag('event', 'form_submit', {
                     'event_category': 'Lead Generation',
-                    'event_label': 'Quick Contact'
+                    'event_label': 'Quick Contact Guide Download'
                 });
+                
+                // Redirect to przewodnik.html
+                window.location.href = 'przewodnik.html';
             }, 1000);
         });
     }
