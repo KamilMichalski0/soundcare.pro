@@ -1587,6 +1587,7 @@ document.addEventListener('DOMContentLoaded', function() {
    =========================================== */
 document.addEventListener('DOMContentLoaded', function() {
     const quickForm = document.getElementById('quick-contact-form');
+    const pricingForm = document.getElementById('pricing-form');
     
     if (quickForm) {
         quickForm.addEventListener('submit', function(e) {
@@ -1601,6 +1602,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Redirect to przewodnik.html
                 window.location.href = 'przewodnik.html';
+            }, 1000);
+        });
+    }
+    
+    if (pricingForm) {
+        pricingForm.addEventListener('submit', function(e) {
+            // Let form submit to Sendy normally
+            // Show success message
+            setTimeout(() => {
+                // Track conversion
+                gtag('event', 'form_submit', {
+                    'event_category': 'Lead Generation',
+                    'event_label': 'Pricing Quote Request'
+                });
+                
+                // Show success message
+                alert('Dziękujemy! Wycena zostanie wysłana na podany email w ciągu 24 godzin.');
+                
+                // Reset form
+                pricingForm.reset();
             }, 1000);
         });
     }

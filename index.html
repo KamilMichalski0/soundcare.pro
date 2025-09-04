@@ -1635,44 +1635,64 @@
                     </div>
                     <div class="cta-content">
                         <div class="cta-header">
-                            <h3>Gotowy na szczegółowy cennik?</h3>
-                            <p>Poznaj wszystkie funkcjonalności, porównaj pakiety i znajdź idealne rozwiązanie dla swojej firmy</p>
+                            <h3>Otrzymaj bezpłatną wycenę</h3>
+                            <p>Skontaktuj się z nami i otrzymaj spersonalizowaną ofertę dostosowaną do potrzeb Twojej firmy</p>
                         </div>
                         
-                        <div class="cta-features">
-                            <div class="cta-feature">
-                                <i class="fas fa-list-ul"></i>
-                                <span>Szczegółowe porównanie wszystkich funkcji</span>
+                        <form id="pricing-form" class="pricing-form" action="https://sendy.znanytrener.ai/subscribe" method="POST" target="sendy-frame-pricing">
+                            <input type="hidden" name="list" value="iZHQoTHc763eo8EbrplGJdKA">
+                            <input type="hidden" name="boolean" value="true">
+                            <input type="hidden" name="subform" value="yes">
+                            <input type="hidden" name="source" value="pricing-section">
+                            
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="pricing-name">Imię i nazwisko</label>
+                                    <input type="text" id="pricing-name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="pricing-email">Email</label>
+                                    <input type="email" id="pricing-email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="pricing-phone">Telefon</label>
+                                    <input type="tel" id="pricing-phone" name="phone" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="pricing-project">Rodzaj projektu</label>
+                                    <select id="pricing-project" name="project_type" required>
+                                        <option value="">Wybierz rodzaj projektu</option>
+                                        <option value="voice-bot">Voice Bot</option>
+                                        <option value="chat-bot">Chat Bot</option>
+                                        <option value="automation">Automatyzacja</option>
+                                        <option value="integration">Integracja</option>
+                                        <option value="other">Inne</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="cta-feature">
+                            
+                            <div class="form-group">
+                                <label for="pricing-message">Dodatkowe informacje (opcjonalnie)</label>
+                                <textarea id="pricing-message" name="message" rows="3" placeholder="Opisz swoje potrzeby..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-large btn-enhanced">
                                 <i class="fas fa-calculator"></i>
-                                <span>Przykłady kosztów wdrożenia</span>
-                            </div>
-                            <div class="cta-feature">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Ścieżka rozwoju pakietów</span>
-                            </div>
-                        </div>
-                        
-                        <div class="cta-buttons hidden">
-                            <a href="cennik.html" class="btn btn-primary btn-large btn-enhanced">
-                                <i class="fas fa-list-ul"></i>
-                                <span>Zobacz Pełny Cennik</span>
+                                <span>Otrzymaj bezpłatną wycenę</span>
                                 <div class="btn-shine"></div>
-                            </a>
-                            <button class="btn btn-secondary btn-large">
-                                <i class="fas fa-phone"></i>
-                                <span>Umów Konsultację</span>
                             </button>
-                        </div>
+                        </form>
                         
                         <div class="cta-guarantee">
                             <div class="guarantee-icon">
                                 <i class="fas fa-handshake"></i>
                             </div>
                             <div class="guarantee-text">
-                                <span class="guarantee-title">Gwarancja satysfakcji</span>
-                                <span class="guarantee-desc">30 dni na pełny zwrot kosztów</span>
+                                <span class="guarantee-title">Odpowiedź w 24h</span>
+                                <span class="guarantee-desc">Bezpłatna konsultacja i wycena</span>
                             </div>
                         </div>
                     </div>
@@ -2048,6 +2068,7 @@
     <!-- Hidden iframes for form submissions -->
     <iframe name="sendy-frame" style="display: none;"></iframe>
     <iframe name="sendy-frame-quick" style="display: none;"></iframe>
+    <iframe name="sendy-frame-pricing" style="display: none;"></iframe>
 
     <!-- Exit Intent Popup -->
     <div id="exit-intent-popup" class="modal exit-intent" style="display: none;">
