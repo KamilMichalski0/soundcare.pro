@@ -355,7 +355,16 @@ function initAnimations() {
     animatedElements.forEach((el, index) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        
+        // Different delays for different element types
+        let delay = 0;
+        if (el.classList.contains('faq-item')) {
+            delay = index * 0.05; // Much faster for FAQ items (50ms between each)
+        } else {
+            delay = index * 0.1; // Normal delay for other elements
+        }
+        
+        el.style.transition = `opacity 0.6s ease ${delay}s, transform 0.6s ease ${delay}s`;
         observer.observe(el);
     });
     
