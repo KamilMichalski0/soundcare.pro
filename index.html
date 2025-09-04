@@ -69,6 +69,7 @@
     
     <!-- Consolidated CSS file -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="modern-navigation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
@@ -335,7 +336,7 @@
                             <div class="business-description">
                                 <h3>Zapomnij o balaganie i papierowej robocie.</h3>
                                 <p>Wprowadź skuteczne zarządzanie placówką wielospecjalistyczną na miarę XXI wieku. Optymalizacja, harmonogramy i organizacja w jednym miejscu – to możliwe!</p>
-                                <button class="btn btn-primary btn-large">
+                                <button class="btn btn-primary btn-large" onclick="openDemoModal()">
                                     Dowiedz się więcej
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
@@ -354,7 +355,7 @@
                             <div class="business-description">
                                 <h3>Automatyzuj rezerwacje i zwiększ zadowolenie gości.</h3>
                                 <p>Umożliw gościom rezerwację stolików i pokoi o każdej porze. SoundCare obsłuży zapytania, potwierdzi rezerwacje i prześle szczegóły automatycznie.</p>
-                                <button class="btn btn-primary btn-large">
+                                <button class="btn btn-primary btn-large" onclick="openDemoModal()">
                                     Dowiedz się więcej
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
@@ -373,7 +374,7 @@
                             <div class="business-description">
                                 <h3>Pozwól klientkom umawiać się kiedy chcą.</h3>
                                 <p>Twoje klientki pracują do późna? SoundCare będzie dostępny 24/7 do umawiania wizyt na manicure, pedicure i zabiegi kosmetyczne.</p>
-                                <button class="btn btn-primary btn-large">
+                                <button class="btn btn-primary btn-large" onclick="openDemoModal()">
                                     Dowiedz się więcej
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
@@ -392,7 +393,7 @@
                             <div class="business-description">
                                 <h3>Umów klientów na przeglądy bez przerywania pracy.</h3>
                                 <p>Klienci mogą umówić się na przegląd, wymianę opon czy naprawę nawet gdy jesteś pod maską. SoundCare wszystko załatwi i prześle Ci potwierdzenie.</p>
-                                <button class="btn btn-primary btn-large">
+                                <button class="btn btn-primary btn-large" onclick="openDemoModal()">
                                     Dowiedz się więcej
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
@@ -411,7 +412,7 @@
                             <div class="business-description">
                                 <h3>Zapewnij profesjonalną obsługę klientów prawnych.</h3>
                                 <p>Klienci potrzebujący pomocy prawnej mogą umówić konsultację o każdej porze. SoundCare zachowa dyskrecję i profesjonalizm na najwyższym poziomie.</p>
-                                <button class="btn btn-primary btn-large">
+                                <button class="btn btn-primary btn-large" onclick="openDemoModal()">
                                     Dowiedz się więcej
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
@@ -430,7 +431,7 @@
                             <div class="business-description">
                                 <h3>Pozwól członkom umawiać treningi personalnie.</h3>
                                 <p>Członkowie mogą umówić trening personalny, zajęcia grupowe lub konsultację dietetyczną nawet po zakończeniu treningu, gdy recepcja jest zamknięta.</p>
-                                <button class="btn btn-primary btn-large">
+                                <button class="btn btn-primary btn-large" onclick="openDemoModal()">
                                     Dowiedz się więcej
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
@@ -449,7 +450,7 @@
                             <div class="business-description">
                                 <h3>Umów wizyty dla zwierząt błyskawicznie.</h3>
                                 <p>Właściciele zwierząt mogą umówić wizytę, szczepienie czy pilną konsultację nawet w weekendy. SoundCare zadba o wszystkie szczegóły.</p>
-                                <button class="btn btn-primary btn-large">
+                                <button class="btn btn-primary btn-large" onclick="openDemoModal()">
                                     Dowiedz się więcej
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
@@ -468,7 +469,7 @@
                             <div class="business-description">
                                 <h3>Odbieraj zlecenia kurierskie automatycznie.</h3>
                                 <p>Klienci mogą umówić odbiór przesyłki, sprawdzić status dostawy i uzyskać informacje o kosztach transportu w każdej chwili, automatycznie.</p>
-                                <button class="btn btn-primary btn-large">
+                                <button class="btn btn-primary btn-large" onclick="openDemoModal()">
                                     Dowiedz się więcej
                                     <i class="fas fa-arrow-right"></i>
                                 </button>
@@ -1294,11 +1295,11 @@
                         <div class="cta-content">
                             <h3>Gotowy na rozpoczęcie?</h3>
                             <p>Sprawdź jak SoundCare może zmienić Twoją firmę już dziś</p>
-                            <button class="btn btn-primary btn-large">
-                                <i class="fas fa-rocket"></i>
+                            <a href="tel:+48732125445" class="btn btn-primary btn-large" aria-label="Zadzwoń do BOTA SoundCare - Bezpłatny Test">
+                                <i class="fas fa-phone"></i>
                                 <span>Rozpocznij Bezpłatny Test</span>
                                 <div class="btn-shine"></div>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -2000,67 +2001,18 @@
                     <input type="hidden" name="subform" value="yes">
                     
                     <div class="form-group">
-                        <label for="name">Imię i nazwisko *</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="email">Business E-mail *</label>
+                        <input type="email" id="email" name="email" required placeholder="jan@firma.pl">
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">E-mail *</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="Phone" placeholder="+48 123 456 789">
                     </div>
                     
                     <div class="form-group">
-                        <label for="phone">Telefon *</label>
-                        <input type="tel" id="phone" name="Phone" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="company">Nazwa firmy *</label>
-                        <input type="text" id="company" name="CompanyName" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="industry">Branża</label>
-                        <select id="industry" name="sector">
-                            <option value="">Wybierz branżę</option>
-                            <option value="medical">Kliniki i przychodnie</option>
-                            <option value="hospitality">Hotele i restauracje</option>
-                            <option value="beauty">Salony kosmetyczne</option>
-                            <option value="automotive">Warsztaty samochodowe</option>
-                            <option value="legal">Firmy prawnicze</option>
-                            <option value="fitness">Centra fitness</option>
-                            <option value="veterinary">Gabinety weterynaryjne</option>
-                            <option value="logistics">Firmy kurierskie</option>
-                            <option value="other">Inna</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="employees">Liczba pracowników</label>
-                        <select id="employees" name="workers">
-                            <option value="">Wybierz zakres</option>
-                            <option value="1-5">1-5 pracowników</option>
-                            <option value="6-20">6-20 pracowników</option>
-                            <option value="21-50">21-50 pracowników</option>
-                            <option value="51-200">51-200 pracowników</option>
-                            <option value="200+">Powyżej 200 pracowników</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Dodatkowe informacje</label>
-                        <textarea id="message" name="description" rows="4" placeholder="Opisz swoje potrzeby lub zadaj pytanie..."></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="demo-time">Preferowany termin demo</label>
-                        <select id="demo-time" name="date">
-                            <option value="">Wybierz preferowany termin</option>
-                            <option value="morning">Rano (9:00 - 12:00)</option>
-                            <option value="afternoon">Popołudnie (12:00 - 17:00)</option>
-                            <option value="evening">Wieczór (17:00 - 20:00)</option>
-                            <option value="flexible">Elastyczny termin</option>
-                        </select>
+                        <label for="message">Dodatkowe notatki</label>
+                        <textarea id="message" name="description" rows="3" placeholder="Opisz swoje potrzeby lub zadaj pytanie..."></textarea>
                     </div>
                     
                     <div class="form-group checkbox-group">
