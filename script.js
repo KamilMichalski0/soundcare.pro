@@ -2,10 +2,8 @@
    VOICEFLOW AI - INTERACTIVE FUNCTIONALITY
    =========================================== */
 
-// Wait for DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Initialize all functionality
+// Initialize all functionality - called after components are loaded
+function initializeAllComponents() {
     initNavigation();
     initFAQ();
     initSmoothScroll();
@@ -14,7 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
     initBusinessTypes();
     initDemoModal();
     initNavigationAnimations();
-    
+}
+
+// Fallback: Initialize if components are loaded traditionally
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if this is a static page (components already loaded)
+    if (document.getElementById('hamburger')) {
+        initializeAllComponents();
+    }
 });
 
 /* ===========================================

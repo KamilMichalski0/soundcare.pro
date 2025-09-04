@@ -1,0 +1,125 @@
+/* ===========================================
+   MAIN CSS FILE - CONSOLIDATED IMPORTS
+   =========================================== */
+
+/* Import all existing CSS files */
+@import url('../styles.css');
+@import url('../pricing-enhanced-styles.css');
+@import url('../accessibility-improvements.css');
+@import url('../mobile-responsive.css');
+@import url('../modal-form.css');
+@import url('../cookie-banner.css');
+@import url('../desktop-navigation.css');
+@import url('../mobile-business-types-fix.css');
+@import url('../modern-menu-2025.css');
+
+/* ===========================================
+   EXTRACTED INLINE STYLES FROM INDEX.HTML
+   =========================================== */
+
+/* Mobile business types styling fix */
+@media (max-width: 768px) {
+    /* Force white background and dark text for active state */
+    .business-type-item.active,
+    .business-type-item.active:hover,
+    .business-type-item.active:focus,
+    .business-type-item.active:active,
+    .business-type-item.active:visited,
+    .business-types-menu .business-type-item.active,
+    .business-types-content .business-type-item.active,
+    .business-types .business-type-item.active {
+        border: 2px solid #2563eb !important;
+        background: white !important;
+        color: #374151 !important;
+        box-shadow: 0 4px 8px rgba(37, 99, 235, 0.1) !important;
+    }
+    
+    /* Force dark text for span elements */
+    .business-type-item.active span,
+    .business-type-item.active:hover span,
+    .business-type-item.active:focus span,
+    .business-type-item.active:active span,
+    .business-type-item.active:visited span,
+    .business-types-menu .business-type-item.active span,
+    .business-types-content .business-type-item.active span,
+    .business-types .business-type-item.active span {
+        color: #374151 !important;
+        font-weight: 600 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    
+    /* Force blue icon with white background */
+    .business-type-item.active .business-icon,
+    .business-type-item.active:hover .business-icon,
+    .business-type-item.active:focus .business-icon,
+    .business-type-item.active:active .business-icon,
+    .business-type-item.active:visited .business-icon,
+    .business-types-menu .business-type-item.active .business-icon,
+    .business-types-content .business-type-item.active .business-icon,
+    .business-types .business-type-item.active .business-icon {
+        color: #2563eb !important;
+        background: rgba(37, 99, 235, 0.15) !important;
+        border: 2px solid #2563eb !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+    
+    /* Ensure normal state for inactive items */
+    .business-type-item {
+        background: white !important;
+        color: #374151 !important;
+        border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .business-type-item:hover {
+        background: white !important;
+        color: #374151 !important;
+        border-color: rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .business-type-item span {
+        color: #374151 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    
+    .business-type-item .business-icon {
+        color: #2563eb !important;
+        background: rgba(37, 99, 235, 0.1) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+}
+
+/* FAQ toggle styling */
+.faq-toggle::before,
+.faq-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.faq-toggle::before {
+    width: 16px;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.faq-toggle::after {
+    width: 2px;
+    height: 16px;
+    border-radius: 1px;
+}
+
+.faq-item.expanded .faq-toggle::after {
+    display: none;
+}
