@@ -94,6 +94,21 @@
     background: linear-gradient(135deg, #1d4ed8 0%, var(--primary-color) 100%) !important;
 }
 
+/* Button text responsive */
+.btn-text-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .btn-text-full {
+        display: none;
+    }
+    
+    .btn-text-mobile {
+        display: inline;
+    }
+}
+
 /* Mobile responsive */
 @media (max-width: 768px) {
     .nav-container {
