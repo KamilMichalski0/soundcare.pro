@@ -1567,29 +1567,30 @@
                         </div>
                         
                         <form id="pricing-form" class="pricing-form" action="https://sendy.znanytrener.ai/subscribe" method="POST" target="sendy-frame-pricing">
-                            <input type="hidden" name="list" value="iZHQoTHc763eo8EbrplGJdKA">
+                            <input type="hidden" name="list" value="xBymtSyE5V9Uvpu8xXv0Ww">
                             <input type="hidden" name="subform" value="yes">
                             <input type="hidden" name="source" value="pricing-section">
+                            <input type="text" name="hp" style="display:none;">
                             
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label for="pricing-name">Imię i nazwisko</label>
-                                    <input type="text" id="pricing-name" name="name" required>
+                                    <input type="text" id="pricing-name" name="name">
                                 </div>
-                                
+
                                 <div class="form-group">
-                                    <label for="pricing-email">Email</label>
+                                    <label for="pricing-email">Email *</label>
                                     <input type="email" id="pricing-email" name="email" required>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="pricing-phone">Telefon</label>
-                                    <input type="tel" id="pricing-phone" name="phone" required>
+                                    <input type="tel" id="pricing-phone" name="phone">
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="pricing-project">Rodzaj projektu</label>
-                                    <select id="pricing-project" name="project_type" required>
+                                    <select id="pricing-project" name="project_type">
                                         <option value="">Wybierz rodzaj projektu</option>
                                         <option value="voice-bot">Voice Bot</option>
                                         <option value="chat-bot">Chat Bot</option>

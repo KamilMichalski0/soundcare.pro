@@ -1597,7 +1597,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const quickForm = document.getElementById('quick-contact-form');
     const pricingForm = document.getElementById('pricing-form');
-    
+
     if (quickForm) {
         quickForm.addEventListener('submit', function(e) {
             // Let form submit to Sendy normally
@@ -1608,13 +1608,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     'event_category': 'Lead Generation',
                     'event_label': 'Quick Contact Guide Download'
                 });
-                
+
                 // Redirect to przewodnik.html
                 window.location.href = 'przewodnik.html';
             }, 1000);
         });
     }
-    
+
     if (pricingForm) {
         pricingForm.addEventListener('submit', function(e) {
             // Track conversion immediately
@@ -1625,12 +1625,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
 
-            // Let form submit to Sendy normally (do NOT prevent default)
-            // Redirect to thank you page after delay
+            // Form submits to iframe, then redirect after submission completes
             setTimeout(() => {
-                // Redirect to thank you page
                 window.location.href = 'email-thank-you.html';
-            }, 1000);
+            }, 1500); // Longer delay to ensure Sendy receives data via iframe
         });
     }
 });
