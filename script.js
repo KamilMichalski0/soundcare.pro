@@ -1617,21 +1617,23 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (pricingForm) {
         pricingForm.addEventListener('submit', function(e) {
-            // Let form submit to Sendy normally
-            // Show success message
-            setTimeout(() => {
-                // Track conversion
+            // Track conversion immediately
+            if (typeof gtag !== 'undefined') {
                 gtag('event', 'form_submit', {
                     'event_category': 'Lead Generation',
                     'event_label': 'Pricing Quote Request'
                 });
-                
+            }
+
+            // Let form submit to Sendy normally (do NOT prevent default)
+            // Wait for Sendy response before showing message
+            setTimeout(() => {
                 // Show success message
                 alert('Dziękujemy! Wycena zostanie wysłana na podany email w ciągu 24 godzin.');
-                
-                // Reset form
+
+                // Reset form after successful submission
                 pricingForm.reset();
-            }, 1000);
+            }, 2000); // Increased delay to ensure Sendy receives data
         });
     }
 });
