@@ -1626,14 +1626,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Let form submit to Sendy normally (do NOT prevent default)
-            // Wait for Sendy response before showing message
+            // Redirect to thank you page after delay
             setTimeout(() => {
-                // Show success message
-                alert('Dziękujemy! Wycena zostanie wysłana na podany email w ciągu 24 godzin.');
-
-                // Reset form after successful submission
-                pricingForm.reset();
-            }, 2000); // Increased delay to ensure Sendy receives data
+                // Redirect to thank you page
+                window.location.href = 'email-thank-you.html';
+            }, 1000);
         });
     }
 });
