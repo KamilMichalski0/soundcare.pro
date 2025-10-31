@@ -36025,9 +36025,22 @@ body {
         margin: 1.5rem auto;
         max-width: 90%;
     }
-    
+
     .form-grid {
         gap: 1rem;
+    }
+
+    .pricing-form .btn {
+        padding: 0.875rem 1rem;
+        font-size: 0.9rem;
+        white-space: normal;
+        line-height: 1.3;
+        min-height: 48px;
+    }
+
+    .pricing-form .btn span {
+        display: inline-block;
+        word-break: break-word;
     }
 }
 
